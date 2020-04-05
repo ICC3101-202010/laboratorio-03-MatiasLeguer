@@ -10,12 +10,12 @@ namespace Laboratorio3_MatiasLeguer
     {
         protected string nombre;
         protected string marca;
-        protected double precio;
+        protected int precio;
         protected bool stockDisp;
         protected int stock;
         protected List<Producto> productos = new List<Producto>(0);
 
-        public Producto(string nombre, string marca, double precio, int stock)  //Constructor
+        public Producto(string nombre, string marca, int precio, int stock)  //Constructor
         {
             this.nombre = nombre;
             this.marca = marca;
@@ -39,7 +39,7 @@ namespace Laboratorio3_MatiasLeguer
         {
             return marca;
         }
-        public double GetPrecio()
+        public int GetPrecio()
         {
             return precio;
         }

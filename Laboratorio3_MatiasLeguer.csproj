@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Cajero.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="Empleados.cs" />
     <Compile Include="Gerente.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Producto.cs" />
@@ -53,6 +54,9 @@
     <Compile Include="Reponedor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

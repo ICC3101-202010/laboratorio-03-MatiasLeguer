@@ -6,45 +6,28 @@ using System.Threading.Tasks;
 
 namespace Laboratorio3_MatiasLeguer
 {
-    public class Persona
+    public abstract class Persona
     {
         protected string nombre;
         protected string apellido;
         protected string rut;
         protected string nacimiento;
         protected string nacionalidad;
-        protected double sueldo;
-
-        public Persona(string nombre, string apellido, string rut, string nacimiento, string nacionalidad, double sueldo)
+       
+        protected Persona(string nombre, string apellido, string rut, string nacimiento, string nacionalidad)
         {
             this.nombre = nombre;
             this.apellido = apellido;
             this.rut = rut;
             this.nacimiento = nacimiento;
             this.nacionalidad = nacionalidad;
-            this.sueldo = sueldo;
         }
-
-       /*
-        public int MostrarSueldo(object empleado) 
+        public Persona()
         {
-
-
-
-
-
         }
-        */
 
-
-
-
-
-
-
-
-
-
+        public abstract bool NuevaPersona(string name, string apellido, string rut, string nacimiento, string nacionalidad);
+        public abstract string ListaClientes();
 
     }
 }
