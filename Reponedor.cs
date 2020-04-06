@@ -60,11 +60,24 @@ namespace Laboratorio3_MatiasLeguer
             return informacion;
         }
 
+        public override string ListaNombres()
+        {
+            string nombresR = base.ListaNombres();
+
+            foreach (Reponedor reponedores in listaRep)
+            {
+                nombresR += reponedores.GetName() + "  ";
+            }
+
+            return nombresR;
+        }
 
 
 
-
-
+        public override List<string> CambiarPuestoTrabajo(string name, string apellido, string rut, string nacimiento, string nacionalidad, int caseTrabajo)
+        {
+            throw new NotImplementedException();
+        }
 
 
 

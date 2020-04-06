@@ -8,6 +8,7 @@ namespace Laboratorio3_MatiasLeguer
 {
     public class Gerente : Empleados
     {
+        
         List<Gerente> listaGerentes = new List<Gerente>();
 
 
@@ -60,10 +61,46 @@ namespace Laboratorio3_MatiasLeguer
             return informacion;
         }
 
+        public override string ListaNombres()
+        {
+            string nombresG = base.ListaNombres();
+
+            foreach(Gerente gerente in listaGerentes)
+            {
+                nombresG += gerente.GetName() + "  ";
+            }
+
+            return nombresG;
+        }
 
 
+        public override List<string> CambiarPuestoTrabajo(string name, string apellido, string rut, string nacimiento, string nacionalidad, int caseTrabajo)
+        {
+            Console.WriteLine(ListaNombres());
+            Console.Write("Porfavor escriba el nombre de la persona a la que desea cambiar de trabajo: ");
+            string nombreCT = Console.ReadLine();
+            List<string> infoCT = new List<string>();
 
+            for(int i = 0; i < listaGerentes.Count; i++)
+            {
+                if (Equals(listaGerentes[i].GetName(), nombreCT))
+                {
+                    infoCT.Add(nombreCT);
+                    infoCT.Add(listaGerentes[i].GetAp());
+                    infoCT.Add(listaGerentes[i].GetRut());
+                    infoCT.Add(listaGerentes[i].GetFNac());
+                    infoCT.Add(listaGerentes[i].GetNacion());
+                    listaGerentes.RemoveAt(i);
+                    break;
+                }
+            }
 
+            Console.Write("Porfavor indique donde quiere dirigir al empleado, escribiendo 'cajero' o 'reponedor'.");
+            string status = Console.ReadLine();
+
+            infoCT.Add(status);
+            return infoCT;
+        }
 
 
 

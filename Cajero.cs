@@ -59,9 +59,22 @@ namespace Laboratorio3_MatiasLeguer
         }
 
 
+        public override string ListaNombres()
+        {
+            string nombresC = base.ListaNombres();
 
+            foreach (Cajero cajeros in listaCajeros)
+            {
+                nombresC += cajeros.GetName() + "  ";
+            }
 
+            return nombresC;
+        }
 
+        public override List<string> CambiarPuestoTrabajo(string name, string apellido, string rut, string nacimiento, string nacionalidad, int caseTrabajo)
+        {
+            throw new NotImplementedException();
+        }
 
 
 

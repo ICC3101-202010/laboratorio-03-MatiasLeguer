@@ -31,6 +31,7 @@ namespace Laboratorio3_MatiasLeguer
             }
         }
 
+        /*
         public string GetName()                                                 //devuelve el nombre del producto
         {
             return nombre;
@@ -47,7 +48,7 @@ namespace Laboratorio3_MatiasLeguer
         {
             return stock;
         }
-
+        */
         public bool NuevoProducto(Producto n)                         //Crea un nuevo producto
         {
 
