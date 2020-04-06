@@ -133,9 +133,107 @@ namespace Laboratorio3_MatiasLeguer
                         }
                         break;
 
+                    case "cambiar trabajo":
+                        Console.Write("Si desea cambiar el trabajo a un gerente, escriba '0'. Si desea cambiar el trabajo a un cajero, escriba '1'. Si desea cambiar el trabajo a un reponedor, escriba '2': ");
+                        string status = Console.ReadLine();
+                        int indice = Int32.Parse(status);
+                        string cambio;
+                        string nombreCT;
+                        bool realizarCambio;
 
+                        if (status == "0")
+                        {
+                            Console.WriteLine(listaEmpleados[indice].ListaNombres());
+                            Console.Write("Escriba el nombre de la persona a la que quiere cambiar de puesto: ");
+                            nombreCT = Console.ReadLine();
+                            List<string> infoCT = listaEmpleados[indice].CambiarPuestoTrabajo(nombreCT);
 
+                            Console.Write("A que puesto desea cambiar al empleado? Escriba 'cajero' o 'reponedor': ");
+                            cambio = Console.ReadLine();
+                            
+                            if (cambio == "cajero")
+                            {
+                                int s = 333391;
+                                realizarCambio = listaEmpleados[1].NuevaPersona(infoCT[0], infoCT[1], infoCT[2], infoCT[3], infoCT[4], s);
+                                Console.WriteLine("Se ha ingresado el nuevo Cajero!");
+                                
+                            }
+                            else if(cambio == "reponedor")
+                            {
+                                int s = 300000;
+                                realizarCambio = listaEmpleados[2].NuevaPersona(infoCT[0], infoCT[1], infoCT[2], infoCT[3], infoCT[4], s);
+                                Console.WriteLine("Se ha ingresado el nuevo reponedor!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("No escribió ninguna de las opciones.");
+                            }
+                            
+                        }
+                        else if(status == "1")
+                        {
+                            Console.WriteLine(listaEmpleados[indice].ListaNombres());
+                            Console.Write("Escriba el nombre de la persona a la que quiere cambiar de puesto: ");
+                            nombreCT = Console.ReadLine();
+                            List<string> infoCT = listaEmpleados[indice].CambiarPuestoTrabajo(nombreCT);
 
+                            Console.Write("A que puesto desea cambiar al empleado? Escriba 'gerente' o 'reponedor': ");
+                            cambio = Console.ReadLine();
+
+                            if (cambio == "gerente")
+                            {
+                                int s = 1000000;
+                                realizarCambio = listaEmpleados[1].NuevaPersona(infoCT[0], infoCT[1], infoCT[2], infoCT[3], infoCT[4], s);
+                                Console.WriteLine("Se ha ingresado el nuevo Gerente!");
+
+                            }
+                            else if (cambio == "reponedor")
+                            {
+                                int s = 300000;
+                                realizarCambio = listaEmpleados[2].NuevaPersona(infoCT[0], infoCT[1], infoCT[2], infoCT[3], infoCT[4], s);
+                                Console.WriteLine("Se ha ingresado el nuevo reponedor!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("No escribió ninguna de las opciones.");
+                            }
+                            
+                        }
+                        else if(status == "2")
+                        {
+                            Console.WriteLine(listaEmpleados[indice].ListaNombres());
+                            Console.Write("Escriba el nombre de la persona a la que quiere cambiar de puesto: ");
+                            nombreCT = Console.ReadLine();
+                            List<string> infoCT = listaEmpleados[indice].CambiarPuestoTrabajo(nombreCT);
+
+                            Console.Write("A que puesto desea cambiar al empleado? Escriba 'cajero' o 'gerente': ");
+                            cambio = Console.ReadLine();
+
+                            if (cambio == "cajero")
+                            {
+                                int s = 333391;
+                                realizarCambio = listaEmpleados[1].NuevaPersona(infoCT[0], infoCT[1], infoCT[2], infoCT[3], infoCT[4], s);
+                                Console.WriteLine("Se ha ingresado el nuevo Cajero!");
+
+                            }
+                            else if (cambio == "gerente")
+                            {
+                                int s = 1000000;
+                                realizarCambio = listaEmpleados[2].NuevaPersona(infoCT[0], infoCT[1], infoCT[2], infoCT[3], infoCT[4],s);
+                                Console.WriteLine("Se ha ingresado el nuevo Gerente!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("No escribió ninguna de las opciones.");
+                            }
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("No escribió ninguna de las opciones.");
+                        }
+
+                        break;
 
 
 

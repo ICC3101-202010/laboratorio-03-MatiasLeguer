@@ -74,9 +74,25 @@ namespace Laboratorio3_MatiasLeguer
 
 
 
-        public override List<string> CambiarPuestoTrabajo(string name, string apellido, string rut, string nacimiento, string nacionalidad, int caseTrabajo)
+        public override List<string> CambiarPuestoTrabajo(string nombreCT)
         {
-            throw new NotImplementedException();
+
+            List<string> infoCT = new List<string>();
+
+            for (int i = 0; i < listaRep.Count; i++)
+            {
+                if (Equals(listaRep[i].GetName(), nombreCT))
+                {
+                    infoCT.Add(nombreCT);
+                    infoCT.Add(listaRep[i].GetAp());
+                    infoCT.Add(listaRep[i].GetRut());
+                    infoCT.Add(listaRep[i].GetFNac());
+                    infoCT.Add(listaRep[i].GetNacion());
+                    listaRep.RemoveAt(i);
+                    break;
+                }
+            }
+            return infoCT;
         }
 
 

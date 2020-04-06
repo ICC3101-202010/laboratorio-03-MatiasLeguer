@@ -74,11 +74,8 @@ namespace Laboratorio3_MatiasLeguer
         }
 
 
-        public override List<string> CambiarPuestoTrabajo(string name, string apellido, string rut, string nacimiento, string nacionalidad, int caseTrabajo)
+        public override List<string> CambiarPuestoTrabajo(string nombreCT)
         {
-            Console.WriteLine(ListaNombres());
-            Console.Write("Porfavor escriba el nombre de la persona a la que desea cambiar de trabajo: ");
-            string nombreCT = Console.ReadLine();
             List<string> infoCT = new List<string>();
 
             for(int i = 0; i < listaGerentes.Count; i++)
@@ -94,11 +91,6 @@ namespace Laboratorio3_MatiasLeguer
                     break;
                 }
             }
-
-            Console.Write("Porfavor indique donde quiere dirigir al empleado, escribiendo 'cajero' o 'reponedor'.");
-            string status = Console.ReadLine();
-
-            infoCT.Add(status);
             return infoCT;
         }
 

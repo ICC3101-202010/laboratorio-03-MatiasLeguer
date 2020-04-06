@@ -84,7 +84,7 @@ namespace Laboratorio3_MatiasLeguer
             sueldo = Int32.Parse(Console.ReadLine());
         }
 
-        public abstract List<string> CambiarPuestoTrabajo(string name, string apellido, string rut, string nacimiento, string nacionalidad, int caseTrabajo);
+        public abstract List<string> CambiarPuestoTrabajo(string name);
 
         public void CambiarHorarioTrabajo()
         {

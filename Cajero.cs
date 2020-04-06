@@ -71,9 +71,24 @@ namespace Laboratorio3_MatiasLeguer
             return nombresC;
         }
 
-        public override List<string> CambiarPuestoTrabajo(string name, string apellido, string rut, string nacimiento, string nacionalidad, int caseTrabajo)
+        public override List<string> CambiarPuestoTrabajo(string nombreCT)
         {
-            throw new NotImplementedException();
+            List<string> infoCT = new List<string>();
+
+            for (int i = 0; i < listaCajeros.Count; i++)
+            {
+                if (Equals(listaCajeros[i].GetName(), nombreCT))
+                {
+                    infoCT.Add(nombreCT);
+                    infoCT.Add(listaCajeros[i].GetAp());
+                    infoCT.Add(listaCajeros[i].GetRut());
+                    infoCT.Add(listaCajeros[i].GetFNac());
+                    infoCT.Add(listaCajeros[i].GetNacion());
+                    listaCajeros.RemoveAt(i);
+                    break;
+                }
+            }
+            return infoCT;
         }
 
 
