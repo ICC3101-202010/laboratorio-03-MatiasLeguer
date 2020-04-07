@@ -18,6 +18,12 @@ namespace Laboratorio3_MatiasLeguer
         {
         }
 
+        public override int GetCount()
+        {
+            int count = listaCajeros.Count;
+            return count;
+        }
+
         public override bool NuevaPersona(string name, string apellido, string rut, string nacimiento, string nacionalidad, int sueldo)
         {
 
@@ -61,7 +67,7 @@ namespace Laboratorio3_MatiasLeguer
 
         public override string ListaNombres()
         {
-            string nombresC = base.ListaNombres();
+            string nombresC = base.ListaNombres() ;
 
             foreach (Cajero cajeros in listaCajeros)
             {
@@ -89,6 +95,14 @@ namespace Laboratorio3_MatiasLeguer
                 }
             }
             return infoCT;
+        }
+
+        public override string NombreCajero(int caja)
+        {
+            string nombre = base.NombreCajero(caja);
+            nombre = listaCajeros[caja].GetName();
+            return nombre;
+
         }
 
 

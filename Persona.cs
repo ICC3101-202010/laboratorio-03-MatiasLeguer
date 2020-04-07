@@ -29,5 +29,6 @@ namespace Laboratorio3_MatiasLeguer
         public abstract bool NuevaPersona(string name, string apellido, string rut, string nacimiento, string nacionalidad);
         public abstract string ListaClientes();
 
+
     }
 }

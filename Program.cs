@@ -12,15 +12,16 @@ namespace Laboratorio3_MatiasLeguer
         {
             List<Producto> listaProductos = new List<Producto>(0);
             Producto p =  new Producto("default", "default", 0, 0);
-            Persona clt = new Cliente();
+            Cliente clt = new Cliente();
             Empleados[] listaEmpleados = {new Gerente(), new Cajero(), new Reponedor()};
+            List<string> registroCompras = new List<string>();
 
 
             bool goodOrBad;
             bool loop = true;
             while (loop)
             {
-                Console.WriteLine("Bienvenido al menú principal. Porfavor escriba una de estas opciones: agregar producto, listado de productos, agregar persona, lista personas, close.");
+                Console.WriteLine("Bienvenido al menú principal. Porfavor escriba una de estas opciones: agregar producto, listado de productos, agregar persona, lista personas, cambiar trabajo, realizar compra, registro compras, close.");
                 string caseSwitch = Console.ReadLine();
 
                 switch (caseSwitch)
@@ -233,6 +234,71 @@ namespace Laboratorio3_MatiasLeguer
                             Console.WriteLine("No escribió ninguna de las opciones.");
                         }
 
+                        break;
+
+                    case "realizar compra":
+                        Console.WriteLine(clt.ListaNombres());
+                        Console.Write("Escriba el nombre del cliente que quiere que realice la compra: ");
+                        string nCL = Console.ReadLine();
+
+                        Console.WriteLine(p.ListaProductos());
+                        Console.WriteLine("Escriba los productos que desea, separandolos por un ENTER. Si es que desea parar de comprar productos, escriba 'LISTO'.");
+                        bool listo = true;
+                        int costo = 0;
+                        List<string> carro = new List<string>();
+                        string objeto;
+                        string agregarProd;
+
+
+                        while (listo)
+                        {
+                            objeto = Console.ReadLine();
+                            agregarProd = p.AgregarAlCarro(objeto);
+                            if(objeto == "LISTO")
+                            {
+                                listo = false;
+                                continue;
+                            }
+                            else if (agregarProd == "npnp")
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                carro.Add(objeto);
+                                costo += int.Parse(agregarProd);
+                            }
+                        }
+
+                        int costoTotal = costo;
+
+                        int largo = listaEmpleados[1].GetCount();
+                        Console.WriteLine("Escoga una caja entre el 0 y el " + largo.ToString());
+                        int caja = Int32.Parse(Console.ReadLine());
+
+                        string nombreCa = listaEmpleados[1].NombreCajero(caja);
+
+                        string boleta = p.DesarrollarBoleta(nCL, nombreCa, costoTotal, carro);
+                        registroCompras.Add(boleta);
+                        Console.WriteLine("La compra se ha realizado con exito!");
+                        Console.WriteLine(boleta);
+                        break;
+
+                    case "registro compras":
+                        if(registroCompras.Count == 0)
+                        {
+                            Console.WriteLine("No se ha realizado ninguna compra.");
+                        }
+                        else
+                        {
+                            string registro = "REGISTRO DE COMPRAS: \n---------------------------------------------------\n";
+                            foreach(string reg in registroCompras)
+                            {
+                                registro += reg + "\n";
+                            }
+
+                            Console.WriteLine(registro);
+                        }
                         break;
 
 

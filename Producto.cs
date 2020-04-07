@@ -31,31 +31,27 @@ namespace Laboratorio3_MatiasLeguer
             }
         }
 
-        /*
+        
         public string GetName()                                                 //devuelve el nombre del producto
         {
             return nombre;
         }
-        public string GetMarca()
-        {
-            return marca;
-        }
-        public int GetPrecio()
-        {
-            return precio;
-        }
+        
         public int GetStock()
         {
             return stock;
         }
-        */
+
+        public int GetPrice()
+        {
+            return precio;
+        }
+
         public bool NuevoProducto(Producto n)                         //Crea un nuevo producto
         {
-
             if (productos.Count == 0)
             {
                 productos.Add(n);
-                Console.WriteLine(productos.Count);
                 Console.WriteLine(productos[0].Informacion());
                 return true;
             }
@@ -86,6 +82,50 @@ namespace Laboratorio3_MatiasLeguer
             info += "--------------------------------------------------\n";
             return info;
         }
+
+
+        public string AgregarAlCarro(string objeto)
+        {
+            string costo;
+            for(int i = 0; i < productos.Count; i++)
+            {
+                if((productos[i].GetName() == objeto) && (productos[i].GetStock() > 0))
+                {
+                    costo = productos[i].GetPrice().ToString();
+                    productos[i].ReducirProducto();
+                    return costo;
+                }
+                else if((productos[i].GetName() == objeto) && (productos[i].GetStock() == 0))
+                {
+                    Console.WriteLine("El producto está agotado. Lo siento");
+                    return "npnp";
+                }
+            }
+            Console.WriteLine("Porfavor, escriba un producto que se encuentre en la lista de productos.");
+            return "npnp";
+        }
+
+
+        public string DesarrollarBoleta(string nCliente, string nCajero, int costoTotal, List<string> carro)
+        {
+            string boleta = "BOLETA \n--------------------------------------\nCLIENTE: " + nCliente + "    CAJERO: " + nCajero + "   Fecha/Hora: " + DateTime.Now.ToString() + "\n";
+            foreach(Producto p in productos)
+            {
+                foreach(string c in carro)
+                {
+                    if (Equals(p.GetName(), c))
+                    {
+                        boleta += c + "......................." + p.GetPrice().ToString() + "\n";
+                    }
+                }
+            }
+            boleta += "COSTO TOTAL: " + costoTotal.ToString();
+            return boleta;
+        }
+
+
+
+
 
 
         //METODOS PRIVADOS

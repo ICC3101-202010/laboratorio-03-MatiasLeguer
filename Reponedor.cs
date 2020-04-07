@@ -18,6 +18,10 @@ namespace Laboratorio3_MatiasLeguer
         {
         }
 
+        public override int GetCount()
+        {
+            throw new NotImplementedException();
+        }
 
 
         public override bool NuevaPersona(string name, string apellido, string rut, string nacimiento, string nacionalidad, int sueldo)

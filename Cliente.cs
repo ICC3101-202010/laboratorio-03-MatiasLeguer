@@ -39,6 +39,13 @@ namespace Laboratorio3_MatiasLeguer
             return true;
         }
 
+
+        private string GetName()
+        {
+            return nombre;
+        }
+
+
         public override string ListaClientes()
         {
             string info = "LISTA DE CLIENTES: \n--------------------------------------------------\n";
@@ -56,6 +63,18 @@ namespace Laboratorio3_MatiasLeguer
             return informacion;
         }
 
+        public string ListaNombres()
+        {
+            string nombresCl = "nombres: \n";
+
+            foreach (Cliente clt in listaClientes)
+            {
+                nombresCl += clt.GetName() + "  ";
+            }
+
+            return nombresCl;
+
+        }
 
 
 

@@ -43,7 +43,7 @@ namespace Laboratorio3_MatiasLeguer
             return nacionalidad;
         }
 
-
+        public abstract int GetCount();
 
         public override bool NuevaPersona(string name, string apellido, string rut, string nacimiento, string nacionalidad)
         {
@@ -77,7 +77,7 @@ namespace Laboratorio3_MatiasLeguer
             string nombres = "Lista de nombres: \n";
             return nombres;
         }
-
+        
         public void Cambiarsueldo()
         {
             Console.WriteLine("Coloque el sueldo del empleado. Como referencia, el de Cajero = $333,391 CLP. El del reponedor = $300,000CLP y el del gerente = $1,000,000CLP ");
@@ -118,7 +118,10 @@ namespace Laboratorio3_MatiasLeguer
         }
 
 
-
+        public virtual string NombreCajero(int caja)
+        {
+            return "";
+        }
 
 
 
