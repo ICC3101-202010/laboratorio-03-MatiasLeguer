@@ -60,7 +60,7 @@ namespace Laboratorio3_MatiasLeguer
             return info;
         }
 
-        private string InformacionGerente()                //Te entrega la informacion de un gerente
+        public string InformacionGerente()                //Te entrega la informacion de un gerente
         {
             string informacion = "Nombre: " + nombre + "   Apellido: " + apellido + "   RUT: " + rut + "   Fecha de nacimiento: " + nacimiento + "   Nacionalidad: " + nacionalidad + "\n";
             return informacion;

@@ -9,6 +9,7 @@ namespace Laboratorio3_MatiasLeguer
     public class Reponedor : Empleados
     {
         List<Reponedor> listaRep = new List<Reponedor>();
+        protected int stockSuper = 10000;
 
         public Reponedor(string nombre, string apellido, string rut, string nacimiento, string nacionalidad, int sueldo) : base(nombre, apellido, rut, nacimiento, nacionalidad, sueldo)
         {
@@ -58,7 +59,7 @@ namespace Laboratorio3_MatiasLeguer
             return info;
         }
 
-        private string InformacionRep()                //Te entrega la informacion de un reponedor
+        public string InformacionRep()                //Te entrega la informacion de un reponedor
         {
             string informacion = "Nombre: " + nombre + "   Apellido: " + apellido + "   RUT: " + rut + "   Fecha de nacimiento: " + nacimiento + "   Nacionalidad: " + nacionalidad + "\n";
             return informacion;

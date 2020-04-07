@@ -40,7 +40,7 @@ namespace Laboratorio3_MatiasLeguer
         }
 
 
-        private string GetName()
+        public string GetName()
         {
             return nombre;
         }
@@ -57,7 +57,7 @@ namespace Laboratorio3_MatiasLeguer
             return info;
         }
 
-        private string InformacionClientes()                //Te entrega la informacion de un cliente
+        public string InformacionClientes()                //Te entrega la informacion de un cliente
         {
             string informacion = "Nombre: " + nombre + "   Apellido: " + apellido + "   RUT: " + rut + "   Fecha de nacimiento: " + nacimiento + "   Nacionalidad: " + nacionalidad + "\n";
             return informacion;

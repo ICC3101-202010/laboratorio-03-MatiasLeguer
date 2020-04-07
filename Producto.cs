@@ -42,6 +42,11 @@ namespace Laboratorio3_MatiasLeguer
             return stock;
         }
 
+        public void SetStock(int reponer)
+        {
+            stock += reponer;
+        }
+
         public int GetPrice()
         {
             return precio;
@@ -123,14 +128,25 @@ namespace Laboratorio3_MatiasLeguer
             return boleta;
         }
 
+        public void ChangeStock()
+        {
+            Console.WriteLine("Reponedor trabaja arduamente para reponer todos los stocks...");
+            foreach(Producto p in productos)
+            {
+                if (p.GetStock() == 0)
+                {
+                    p.SetStock(50);
+                    Console.WriteLine("Stock Repuesto!!");
+                }
+            }
+
+        }
 
 
 
 
-
-        //METODOS PRIVADOS
-        //--------------------------------------------------------------------------------------------------------------
-        private void ReducirProducto()            //Reduce el stock del producto que quieras
+      
+        public void ReducirProducto()            //Reduce el stock del producto que quieras
         {   
             if (stockDisp == false)
             {
@@ -146,14 +162,13 @@ namespace Laboratorio3_MatiasLeguer
             }
         }
 
-        private string Informacion()                //Te entrega la informacion de un producto
+        public string Informacion()                //Te entrega la informacion de un producto
         {
             string informacion = "Nombre: " + nombre + "   Marca: " + marca + "   Precio: " + precio.ToString() + "   Cantidad: " + stock.ToString() + "\n";
             return informacion;
         }
 
-        //--------------------------------------------------------------------------------------------------------------
-
+        
 
     }
 }
